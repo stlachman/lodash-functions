@@ -1,10 +1,11 @@
 const chunk = (array, size = 1) => {
-  let chunkedArr = [];
+  if (size < 0 || array === null || array.length === 0) return [];
+  let chunkedValues = [];
 
   for (let i = 0; i < array.length; i += size) {
-    chunkedArr.push(array.slice(i, i + size));
+    chunkedValues.push(array.slice(i, i + size));
   }
-  return chunkedArr;
+  return chunkedValues;
 };
 
 module.exports = chunk;

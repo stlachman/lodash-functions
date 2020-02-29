@@ -12,9 +12,21 @@ it("it chunks an array into even chunks", () => {
 });
 
 it("it chunks array and places remaining elements in final chunk", () => {
-  expect(chunk(["a", "b", "c", "d"], 3)).toEqual([["a", "b", "c"], ["d"]]);
+  expect(chunk(["a", "b", "c", "d", "e", "f", "g"], 3)).toEqual([
+    ["a", "b", "c"],
+    ["d", "e", "f"],
+    ["g"]
+  ]);
 });
 
 it("it returns an empty array if an empty array is passed in", () => {
   expect(chunk([], 3)).toEqual([]);
+});
+
+it("it returns an empty array if a negative size is passed in", () => {
+  expect(chunk([1, 2, 3, 3], -2)).toEqual([]);
+});
+
+it("it returns an empty array if a null value is passed in ", () => {
+  expect(chunk(null, 2)).toEqual([]);
 });
